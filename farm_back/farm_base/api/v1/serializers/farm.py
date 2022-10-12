@@ -32,8 +32,13 @@ class FarmCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Farm
-        fields = ['id', 'name', 'geometry', 'centroid', 'area']
+        fields = ['id', 'name', 'geometry', 'centroid', 'area', 'state', 'municipality', 'owner']
         read_only_fields = ['id', 'centroid', 'area']
+        extra_kwargs = {
+            'municipality': {'required': True},
+            'state': {'required': True},
+            'owner': {'required': True}
+        }
 
 
 class FarmDetailSerializer(serializers.ModelSerializer):
