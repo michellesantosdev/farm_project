@@ -3,7 +3,9 @@ from farm_base.models.owner import Owner
 import json
 from farm_base.models.farm import Farm
 
+
 class OwnerFactory(factory.django.DjangoModelFactory):
+
     class Meta:
         model = Owner
 
@@ -50,4 +52,3 @@ class FarmFactory(factory.django.DjangoModelFactory):
     municipality = 'São José'
     state = 'Santa Catarina'
     owner = factory.SubFactory(OwnerFactory)
-
